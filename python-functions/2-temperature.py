@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-def convert_to_celsius(fahrenheit):
-    celsius = (fahrenheit - 32) * 5 / 9
+def convert_to_celsius(f):
+    return  (f-32) * 5/9
