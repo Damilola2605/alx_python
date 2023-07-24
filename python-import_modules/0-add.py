@@ -1,10 +1,11 @@
-# File: main.py
-
-# Import the 'add' function from the add_0.py file
+#!/usr/bin/python3
 from add_0 import add
 
-# Call the 'add' function with arguments 2 and 3
-result = add(2, 3)
+a = 1
+b = 2
 
-# Print the result
-print("The addition of 2 + 3 =",result)
+result = add(a, b)
+
+if __name__ == "__main__":
+    print("{} + {} = {}".format(a, b, result))
+    pass
