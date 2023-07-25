@@ -2,19 +2,19 @@
 import sys
 
 
-def main():
-    num_args = len(sys.argv) - 1
-    if num_args == 0:
-        print("0 arguments.")
-    elif num_args == 1:
-        print("1 argument:")
+def print_arguments():
+    num_arguments = len(sys.argv) - 1
+
+    # Print the number of arguments and the appropriate suffix
+    if num_arguments == 1:
+        print("Number of argument: {}.".format(num_arguments))
     else:
-        print(f"{num_args} arguments:")
+        print("Number of arguments: {}.".format(num_arguments))
 
-    if num_args > 0:
-        for i in range(1, num_args + 1):
-            print(f"{i}: {sys.argv[i]}")
-
+    # Print the list of arguments and their positions
+    if num_arguments > 0:
+        for i, arg in enumerate(sys.argv[1:], start=1):
+            print("{}: {}".format(i, arg))
 
 if __name__ == "__main__":
-    main()
+    print_arguments()
