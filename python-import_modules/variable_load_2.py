@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+a = 98
 
-def variable(a):
-    return a
+"""Simple variable
+"""
