@@ -1,5 +1,12 @@
 #!/usr/bin/python3
 def add(a, b):
-    return a + b
+    """My addition function
 
-#chmod +x 0-add.py
+    Args:
+        a: first integer
+        b: second integer
+
+    Returns:
+        The return value. a + b
+    """
+    return (a + b)
