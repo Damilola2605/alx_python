@@ -2,7 +2,7 @@
 
 """Module on Square
 
-This module demonstrates documentation of Class Square module that has Private instance attribute as size.
+This module demonstrates a Class Square module that has Private instance attribute as size.
 
 Example:
     Create a square instance with a size of 3:
@@ -24,13 +24,14 @@ Todo:
 
 class Square:
 
-     """
+    """
     Represents a square.
 
     Attributes:
         __size (int): The size of the square.
     """
-     def __init__(self, size):
+
+    def __init__(self, size):
         ''' Initializes a Square instance.
              Args:
         size (int): The size of the square.
