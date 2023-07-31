@@ -2,7 +2,7 @@
 
 """Module on Square
 
-This module demonstrates a Class Square module that has Private instance attribute as size.
+This module demonstrates a Class Square that has Private attribute as size.
 
 Example:
     Create a square instance with a size of 3:
@@ -21,6 +21,7 @@ Todo:
     * For module TODOs
     * You have to also use ``sphinx.ext.todo`` extension
 """
+
 
 class Square:
 
