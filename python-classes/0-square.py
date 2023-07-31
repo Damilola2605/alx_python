@@ -23,7 +23,8 @@ Todo:
 """
 
 class Square:
-    #Represents a square.
+    #Classes:
+    #Class: A sample class for square size.
 
     #Attributes:
     #    __size (int): The size of the square.
