@@ -1,6 +1,6 @@
 #!/user/bin/python3
 
-"""Module on Square
+'''Module on Square
 
 This module demonstrates a Class Square that has Private attribute as size.
 
@@ -20,32 +20,35 @@ Attributes:
 Todo:
     * For module TODOs
     * You have to also use ``sphinx.ext.todo`` extension
-"""
+'''
 
 
 class Square:
-
      """
-         Represents a square.
-         Attributes:
-        __size (int): The size of the square.
-        """ 
+     Represents a square.
+     Attributes:
+     
+     __size (int): The size of the square.
+     """
+     
      def __init__(self, size=0):
         ''' Initializes a Square instance.
-             Args:
+        Args:
         size (int, optional): The size of the square. Set to 0
         '''
         self.__size = size
         if not isinstance(size, int):
-         raise TypeError("size must be an integer")
+            raise TypeError("size must be an integer")
         if size < 0:
             raise ValueError("size must be >= 0")
         self.__size = size
+        
         def area(self):
-
+            
             '''Represents the value of area
 
             Returns:
-              int: the calculated square of the area
+            int: the calculated square of the area
             '''
             return self.__size ** 2
+        
