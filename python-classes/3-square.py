@@ -1,12 +1,12 @@
-#!/user/bin/python3
+# -*- coding: utf-8 -*-
+"""Square Module.
 
-"""Module on Square
-
-This module demonstrates a Class Square that has Private attribute as size.
+This module defines a Square class that represents a square with a private
+instance attribute: size.
 
 Example:
     Create a square instance with a size of 3:
-    my_square = Square(3)
+    >>> my_square = Square(3)
 
 Attributes:
     module_level_variable1 (int): Module level variables may be documented in
@@ -20,56 +20,69 @@ Attributes:
 Todo:
     * For module TODOs
     * You have to also use ``sphinx.ext.todo`` extension
+
+.. _Google Python Style Guide:
+   http://google.github.io/styleguide/pyguide.html
+
 """
 
 
 class Square:
-
     """
-         Represents a square.
-         Attributes:
-        __size (int): The size of the square.
-        """
-    def __init__(self, size=0):
+    Represents a square.
 
-        ''' Initializes a Square instance.
-             Args:
-        size (int, optional): The size of the square. Set to 0
-        '''
+    Attributes:
+        __size (int): The size of the square.
+    """
+
+    def __init__(self, size=0):
+        """
+        Initializes a Square instance.
+
+        Args:
+            size (int, optional): The size of the square. Defaults to 0.
+        """
         self.__size = size
 
-    #This is the property line
-    def size(self):
+        if not isinstance(size, int):
+            raise TypeError("size must be an integer")
+        elif size < 0:
+            raise ValueError("size must be >= 0")
 
-        ''' Retrieves the size of the square.
+    @property
+    def size(self):
+        """
+        Retrieves the size of the square.
+
         Returns:
             int: The size of the square.
-        '''
+        """
         return self.__size
-    
-    #This is the line for the setter
-    def size(self, value):
 
-        '''Sets the size of the square.
+    @size.setter
+    def size(self, value):
+        """
+        Sets the size of the square.
 
         Args:
             value (int): The size of the square.
 
         Raises:
             TypeError: If value is not an integer.
-            ValueError: If value is less than 0.'''
-        
-
+            ValueError: If value is less than 0.
+        """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
-        if value < 0:
+        elif value < 0:
             raise ValueError("size must be >= 0")
+
         self.__size = value
 
     def area(self):
-
-        ''' Calculates the area of the square.
+        """
+        Calculates the area of the square.
 
         Returns:
-            int: The area of the square.'''
+            int: The area of the square.
+        """
         return self.__size ** 2
