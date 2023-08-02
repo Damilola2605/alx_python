@@ -1,0 +1,1 @@
+This project is about inheritance which will contain classes, functions, issubclass, isinstance, type and super.
