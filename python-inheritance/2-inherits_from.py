@@ -5,6 +5,8 @@
 This module demonstrates a Function of inheritance.
 """
 def inherits_from(obj, a_class):
+
+
     """
     Check if an object is an instance of the specified class.
     
@@ -13,6 +15,6 @@ def inherits_from(obj, a_class):
         a_class: The class to compare the object against.
 
     Returns:
-        bool: True if the object is an instance of the specified class, False otherwise.
+    bool: True if the object is an instance of the specified class.
     """
     return issubclass(type(obj), a_class) and type(obj) is not a_class
