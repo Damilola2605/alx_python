@@ -7,4 +7,7 @@ This module demonstrates an empty basegeometry Class.
 
 
 class BaseGeometry:
+    """
+    This is a docstring for the BaseGeometry class
+    """
     pass
