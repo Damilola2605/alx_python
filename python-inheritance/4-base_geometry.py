@@ -19,13 +19,8 @@ class BaseGeometry(metaclass=TheMetaclass):
     """
     Method to remove the initsubclass
     """
-    pass
-
-class BaseGeometry:
-    """
-    A class to calculate tha area of geometry.
-    """
     def area(self):
+
         """
         Calculate the area of the geometry.
 
