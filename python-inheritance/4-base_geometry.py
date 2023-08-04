@@ -21,7 +21,7 @@ class BaseGeometry(metaclass=TheMetaclass):
     """
     pass
 
-class DerivedGeometry (BaseGeometry):
+class BaseGeometry:
     """
     A class to calculate tha area of geometry.
     """
