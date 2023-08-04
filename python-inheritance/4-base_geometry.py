@@ -10,15 +10,26 @@ class TheMetaclass(type):
     def __dir__(subclass):
         return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
     
-class BaseGeometry():
+class BaseGeometry(metaclass=TheMetaclass):
     """
     An empty class file defining the base geometry.
     """
+    def __dir__(subclass):
+        return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
+    """
+    Method to remove the initsubclass
+    """
+    pass
+
+class DerivedGeometry (BaseGeometry):
+    """
+    A class to calculate tha area of geometry.
+    """
     def area(self):
         """
-        calculate the area of the geometry
+        Calculate the area of the geometry.
 
         Raises:
-        Raise expection that is not implemented
+            Exception: This method is not implemented.
         """
         raise Exception("area() is not implemented")
