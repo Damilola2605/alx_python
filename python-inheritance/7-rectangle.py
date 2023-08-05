@@ -5,6 +5,8 @@ Module containing the Rectangle class that inherits from BaseGeometry.
 """
 
 
+BaseGeometry = __import__('5-base_geometry').BaseGeometry
+
 class BaseGeometry:
     """
     Class on BaseGeometry.
