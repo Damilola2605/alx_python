@@ -7,37 +7,6 @@ Module containing the Rectangle class that inherits from BaseGeometry.
 
 BaseGeometry = __import__('5-base_geometry').BaseGeometry
 
-class BaseGeometry:
-    """
-    Class on BaseGeometry.
-    """
-    def area(self):
-        """
-        Raises an Exception with the message area() is not implemented.
-
-        Raises:
-            Exception: Always raised with the message area() is not implemented.
-        """
-        raise Exception("area() is not implemented")
-
-    def integer_validator(self, name, value):
-        """
-        Validates the value if it's an integer and greater than 0.
-
-        Args:
-            name (str): The name of the variable.
-            value (int): The value to be validated.
-
-        Raises:
-            TypeError: If value is not an integer.
-            ValueError: If value is less or equal to 0.
-        """
-        if not isinstance(value, int):
-            raise TypeError("{} must be an integer".format(name))
-        if value <= 0:
-            raise ValueError("{} must be greater than 0".format(name))
-
-
 class Rectangle(BaseGeometry):
     """
     Rectangle class that inherits from BaseGeometry.
