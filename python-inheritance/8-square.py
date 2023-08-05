@@ -9,7 +9,7 @@ Rectangle = __import__('7-rectangle').Rectangle
 class Square(Rectangle):
     """
     A square class that inherits from Rectangle
-    
+
     Attributes:
     __size (int): The size of the square.
     """
