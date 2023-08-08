@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-from models.base import Base
 """
 Module on a Rectangle class that inherits from Base
 """
+from models.base import Base
+
 class Rectangle (Base):
     """
     This is the calss defining the Rectangle
