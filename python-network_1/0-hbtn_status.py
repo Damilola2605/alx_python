@@ -4,10 +4,10 @@
 This module on a script that fetches a link
 """
 
-from urllib import request
+import requests
 
 url = 'https://alu-intranet.hbtn.io/status'
-response = request.get(url)
+response = requests.get(url)
 
 if response.status_code == 200:
     data = response.json()
