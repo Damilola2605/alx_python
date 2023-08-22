@@ -10,7 +10,13 @@ def list_states(username, password, database):
     """
     This function is to connect Mysql server
     """
-    db = MySQLdb.connect(host='localhost', port=3306, user=username, passwd=password, db=database)
+    db = MySQLdb.connect(
+        host='localhost',
+        port=3306,
+        user=username,
+        passwd=password,
+        db=database
+    )
     """Creating a cursor object for interation in database"""
     cursor = db.cursor()
     """Executing the SQL quary to get the list of states"""
