@@ -20,7 +20,7 @@ def list_states_with_N(username, password, database):
     """Creating a cursor object for interation in database"""
     cursor = db.cursor()
     """Execute the SQL query to retrieve states starting with 'N'"""
-    query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
+    query = "SELECT * FROM states WHERE name LIKE 'N%' COLLATE utf8_bin ORDER BY id ASC"
     cursor.execute(query)
     """Get all the rows from the result set"""
     results = cursor.fetchall()
