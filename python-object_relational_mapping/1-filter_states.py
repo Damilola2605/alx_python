@@ -6,7 +6,7 @@ import MySQLdb
 import sys
 
 
-def list_states_with_n(username, password, database):
+def list_states_with_N(username, password, database):
     """
     This function list states with uppercase N
     """
@@ -38,4 +38,4 @@ if __name__ == "__main__":
         username = sys.argv[1]
         password = sys.argv[2]
         database = sys.argv[3]
-        list_states_with_n(username, password, database)
+        list_states_with_N(username, password, database)
