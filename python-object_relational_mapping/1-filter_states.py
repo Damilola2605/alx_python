@@ -6,15 +6,22 @@ This module list all state that starts with N
 import MySQLdb
 import sys
 
+
 def list_states_with_N(username, password, database):
     """Connect to the MySQL server"""
-    db = MySQLdb.connect(host='localhost', port=3306, user=username, passwd=password, db=database)
+    db = MySQLdb.connect(
+        host='localhost',
+        port=3306,
+        user=username,
+        passwd=password,
+        db=database
+    )
 
     """Create a cursor object to interact with the database"""
     cursor = db.cursor()
 
     """Execute the SQL query to retrieve states starting with 'N' """
-    query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
+    query = "SELECT * FROM states WHERE BINARY name LIKE 'N%' ORDER BY id ASC"
     cursor.execute(query)
 
     """Fetch all the rows from the result set"""
