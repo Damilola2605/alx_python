@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """This module will be Sql injection free
-and it will list id,cities and state in ASC 
+and it will list id,cities and state in ASC
 order
 """
 
@@ -23,7 +23,6 @@ def list_cities_by_state(username, password, database, state_name):
     """Execute the SQL query to retrieve cities of the specified state"""
     query = ("SELECT cities.id, cities.name, states.name "
              "FROM cities "
-             "JOIN states ON cities.state_id = states.id "
              "WHERE states.name = %s "
              "ORDER BY cities.id ASC")
     cursor.execute(query, (state_name,))
@@ -41,7 +40,8 @@ def list_cities_by_state(username, password, database, state_name):
 
 if __name__ == "__main__":
     if len(sys.argv) != 5:
-        print("Usage: python script_name.py <username> <password> <database> <state_name>")
+       print("Usage: python script_name.py <username> <password> "
+              "<database> <state_name>")
     else:
         username = sys.argv[1]
         password = sys.argv[2]
