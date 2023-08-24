@@ -11,6 +11,8 @@ from sqlalchemy.orm import sessionmaker
 Base = declarative_base()
 """Class for state base"""
 class State(Base):
+
+    
     """Define the State class"""
     __tablename__ = 'states'
 
