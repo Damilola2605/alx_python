@@ -10,9 +10,9 @@ from sqlalchemy.orm import sessionmaker
 """Create a declarative base"""
 Base = declarative_base()
 """Class for state base"""
-class State(Base):
 
-    
+
+class State(Base):
     """Define the State class"""
     __tablename__ = 'states'
 
