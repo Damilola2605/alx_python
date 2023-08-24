@@ -19,7 +19,8 @@ def search_states(username, password, database, state_name):
     cursor = db.cursor()
 
     """Execute the SQL query to retrieve states with matching name"""
-    query = "SELECT * FROM states WHERE BINARY name = '{}' ORDER BY id ASC".format(state_name)
+    query = "SELECT * FROM states WHERE BINARY name = '{}' ORDER BY id ASC"
+    ".format(state_name)"
     cursor.execute(query)
 
     """Fetch all the rows from the result set"""
