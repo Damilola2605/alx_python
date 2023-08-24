@@ -19,7 +19,7 @@ def search_states(username, password, database, state_name):
     cursor = db.cursor()
 
     """Execute the SQL query to retrieve states with matching name"""
-    query = f"SELECT * FROM states WHERE BINARY name = '{state_name}' ORDER BY id ASC"
+    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(state_name)
     cursor.execute(query)
 
     """Fetch all the rows from the result set"""
@@ -35,7 +35,8 @@ def search_states(username, password, database, state_name):
 
 if __name__ == "__main__":
     if len(sys.argv) != 5:
-        print("Usage: python my_states.py <username> <password> <database> <state_name>")
+        print("Usage: python script_name.py <username> <password> "
+              "<database> <state_name>")
     else:
         username = sys.argv[1]
         password = sys.argv[2]
