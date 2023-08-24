@@ -10,7 +10,9 @@ from model_state import Base, State
 
 def list_states(username, password, db_name):
     """Create an engine to connect to the MySQL server"""
-    engine = create_engine(f'mysql://{username}:{password}@localhost:3306/{db_name}')
+    engine = create_engine(
+        f'mysql://{username}:{password}@localhost:3306/{db_name}'
+    )
 
     # Create a session
     Session = sessionmaker(bind=engine)
