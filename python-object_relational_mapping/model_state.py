@@ -13,8 +13,8 @@ engine = create_engine('mysql://username:password@localhost:3306/database_name')
 """Create a declarative base"""
 Base = declarative_base()
 
-"""Define the State class"""
 class State(Base):
+    """Define the State class"""
     __tablename__ = 'states'
 
     id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
