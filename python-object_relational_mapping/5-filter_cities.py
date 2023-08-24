@@ -7,6 +7,7 @@ order
 import MySQLdb
 import sys
 
+
 def list_cities_by_state(username, password, database, state_name):
     """Connect to the MySQL server"""
     db = MySQLdb.connect(
@@ -31,9 +32,9 @@ def list_cities_by_state(username, password, database, state_name):
     """Fetch all the rows from the result set"""
     results = cursor.fetchall()
 
-    """Print the results"""
-    for row in results:
-        print(row)
+    """Extract and print only the city names"""
+    city_names = [row[1] for row in results]
+    print(", ".join(city_names))
 
     """Close the cursor and the database connection"""
     cursor.close()
@@ -41,7 +42,7 @@ def list_cities_by_state(username, password, database, state_name):
 
 if __name__ == "__main__":
     if len(sys.argv) != 5:
-       print("Usage: python script_name.py <username> <password> "
+        print("Usage: python script_name.py <username> <password> "
               "<database> <state_name>")
     else:
         username = sys.argv[1]
