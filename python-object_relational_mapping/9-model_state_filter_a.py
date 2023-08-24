@@ -19,9 +19,9 @@ def list_states_with_letter_a(username, password, db_name):
 
     # Retrieve and display State objects with the 'a' sorted by ID
     states_with_a = session.query(State)\
-    .filter(State.name.like('%a%'))\
-    .order_by(State.id)\
-    .all()
+        .filter(State.name.like('%a%'))\
+        .order_by(State.id)\
+        .all()
     for state in states_with_a:
         print(f"{state.id}: {state.name}")
 
