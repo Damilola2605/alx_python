@@ -6,7 +6,7 @@ import sys
 
 
 def list_cities(username, password, database):
-    # Connect to the MySQL server
+    """Connect to the MySQL server"""
     db = MySQLdb.connect(
         host='localhost',
         port=3306,
@@ -15,21 +15,25 @@ def list_cities(username, password, database):
         db=database
     )
 
-    # Create a cursor object to interact with the database
+    """Create a cursor object to interact with the database"""
     cursor = db.cursor()
 
-    # Execute the SQL query to retrieve all cities and order by id
-    query = "SELECT * FROM cities ORDER BY id ASC"
+    """Execute the SQL query to retrieve all cities and order by id"""
+    query = ("SELECT cities.id, cities.name, states.name "
+             "FROM cities "
+             "JOIN states ON cities.state_id = states.id "
+             "ORDER BY cities.id ASC")
+
     cursor.execute(query)
 
-    # Fetch all the rows from the result set
+    """"Fetch all the rows from the result set"""
     results = cursor.fetchall()
 
-    # Print the results
+    """Print the results"""
     for row in results:
         print(row)
 
-    # Close the cursor and the database connection
+    """Close the cursor and the database connection"""
     cursor.close()
     db.close()
 
