@@ -12,7 +12,7 @@ app = Flask(__name__)
 """The route for the homepage"""
 @app.route('/', strict_slashes=False)
 def hello():
-    return "Hello HBNB"
+    return "Hello HBNB!"
 
 if __name__ == '__main__':
     # Run the app on 0.0.0.0:5000
