@@ -33,8 +33,8 @@ def python_is_cool(text):
 
 """Define the integer number"""
 @app.route('/number/<int:n>', strict_slaches=False)
-def display(n):
-    return f"{n} is a number"
+def show_number(n):
+    return "{} is a number".format(n)
 
 if __name__ == '__main__':
     # Run the app on 0.0.0.0:5000
