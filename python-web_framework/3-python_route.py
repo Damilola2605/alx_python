@@ -27,9 +27,9 @@ def show_text(text):
 
 """ Define a route for /python/<text>"""
 @app.route('/python/<text>', strict_slashes=False)
-def show_text_python(text="is_cool"):
-    text = escape(text).replace('_', ' ')
-    return f"Python {text}"
+@app.route("/python/", defaults={"text": "is cool"}, strict_slashes=False)
+def python_is_cool(text):
+    return "Python " + escape(text.replace("_", " "))
 
 if __name__ == '__main__':
     # Run the app on 0.0.0.0:5000
