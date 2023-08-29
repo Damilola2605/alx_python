@@ -1,41 +1,47 @@
-#!/usr/bin/python3
 """
-Import from  flask and start a 
-a web application"""
+This script creates a simple Flask web application.
+"""
 
 from flask import Flask, escape
 
-
-"""Create the instancce of the app"""
 app = Flask(__name__)
 
-"""The route for the homepage"""
-@app.route('/', strict_slashes=False)
+@app.route("/", strict_slashes=False)
 def hello():
+    """
+    This function defines the route '/' which displays "Hello HBNB!".
+    """
     return "Hello HBNB!"
 
-"""Define a route for /hbnb"""
-@app.route('/hbnb', strict_slashes=False)
+@app.route("/hbnb", strict_slashes=False)
 def hbnb():
+    """
+    This function defines the route '/hbnb' which displays "HBNB".
+    """
     return "HBNB"
 
-"""Define a route for /c/<text>"""
-@app.route('/c/<text>', strict_slashes=False)
-def show_text(text):
-    text = escape(text).replace('_', ' ')
-    return f"C {text}"
+@app.route("/c/<text>", strict_slashes=False)
+def c_is_fun(text):
+    """
+    This function defines the route '/c/<text>' which displays "C " followed by the value of the text variable.
+    """
+    return "C " + escape(text.replace("_", " "))
 
-""" Define a route for /python/<text>"""
-@app.route('/python/<text>', strict_slashes=False)
 @app.route("/python/", defaults={"text": "is cool"}, strict_slashes=False)
+@app.route("/python/<text>", strict_slashes=False)
 def python_is_cool(text):
+    """
+    This function defines the route '/python/' and '/python/<text>' which displays "Python " followed by the
+    value of the text variable.
+    """
     return "Python " + escape(text.replace("_", " "))
 
-"""Define the integer number"""
-@app.route('/number/<int:n>', strict_slaches=False)
-def show_number(n):
+@app.route("/number/<int:n>", strict_slashes=False)
+def is_number(n):
+    """
+    This function defines the route '/number/<n>' which displays "<n> is a number" if n is an integer.
+    """
     return "{} is a number".format(n)
 
-if __name__ == '__main__':
-    # Run the app on 0.0.0.0:5000
-    app.run(host='0.0.0.0', port=5000)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
