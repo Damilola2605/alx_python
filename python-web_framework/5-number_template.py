@@ -1,23 +1,5 @@
 """
 This script creates a simple Flask web application.
-
-Usage:
-    Run this script and access the web application in your browser or using curl.
-
-Routes:
-    /: display “Hello HBNB!”
-    /hbnb: display “HBNB”
-    /c/<text>: display “C ”, followed by the value of the text variable
-               (replace underscore _ symbols with a space)
-    /python/(<text>): display “Python ”, followed by the value of the text variable
-                      (replace underscore _ symbols with a space)
-                      The default value of text is "is cool"
-    /number/<n>: display “n is a number” only if n is an integer
-    /number_template/<n>: display an HTML page only if n is an integer:
-                          H1 tag: “Number: n” inside the BODY tag
-
-Note:
-    The web application listens on 0.0.0.0 and port 5000.
 """
 
 from flask import Flask, escape, render_template
@@ -49,9 +31,6 @@ def c_is_fun(text):
     """
     This function defines the route '/c/<text>' which displays "C " followed by the value of the text variable.
 
-    Args:
-        text (str): The text value specified in the URL.
-
     Returns:
         str: The string "C " followed by the text value, with underscores replaced by spaces.
     """
@@ -64,9 +43,6 @@ def python_is_cool(text):
     This function defines the route '/python/' and '/python/<text>' which displays "Python " followed by the
     value of the text variable.
 
-    Args:
-        text (str): The text value specified in the URL. Default is "is cool".
-
     Returns:
         str: The string "Python " followed by the text value, with underscores replaced by spaces.
     """
@@ -76,9 +52,6 @@ def python_is_cool(text):
 def is_number(n):
     """
     This function defines the route '/number/<n>' which displays "<n> is a number" if n is an integer.
-
-    Args:
-        n (int): The integer value specified in the URL.
 
     Returns:
         str: The string "<n> is a number" if n is an integer.
@@ -90,9 +63,6 @@ def number_template(n):
     """
     This function defines the route '/number_template/<n>' which displays an HTML page with the H1 tag
     "Number: n" inside the BODY tag.
-
-    Args:
-        n (int): The integer value specified in the URL.
 
     Returns:
         render_template: Renders the HTML template with the H1 tag displaying "Number: n".
