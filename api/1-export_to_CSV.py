@@ -1,64 +1,51 @@
+"""
+This script uses an API to retrieve employee task information
+and display in a special format.
+
+It retrieves employees name, task completed with their titles.
+"""
+import csv
 import requests
 import sys
-import csv
 
-def get_employee_info(employee_id):
-    # Define the base URL for the API
-    base_url = 'https://jsonplaceholder.typicode.com'
-
-    # Create the URL for the employee's TODO list
-    todos_url = f'{base_url}/users/{employee_id}/todos'
-
-    # Send a GET request to retrieve TODO list data
-    todos_response = requests.get(todos_url)
-
-    if todos_response.status_code != 200:
-        print("Error: Unable to retrieve TODO list data.")
-        return
-
-    # Create the URL for the employee's details
-    details_url = f'{base_url}/users/{employee_id}'
-
-    # Send a GET request to retrieve employee details
-    details_response = requests.get(details_url)
-
-    if details_response.status_code != 200:
-        print("Error: Unable to retrieve employee details.")
-        return
-
-    # Parse the JSON responses
-    todos_data = todos_response.json()
-    details_data = details_response.json()
-
-    # Extract employee information
-    user_id = details_data.get('id', 'Unknown')
-    username = details_data.get('username', 'Unknown')
-
-    # Create a CSV file for the employee
-    csv_file_name = f'{user_id}.csv'
-
-    with open(csv_file_name, mode='w', newline='') as csv_file:
-        fieldnames = ['USER_ID', 'USERNAME', 'TASK_COMPLETED_STATUS', 'TASK_TITLE']
-        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-        writer.writeheader()
-
-        # Write TODO list data to the CSV file
-        for todo in todos_data:
-            task_completed_status = todo['completed']
-            task_title = todo['title']
-            writer.writerow({
-                'USER_ID': user_id,
-                'USERNAME': username,
-                'TASK_COMPLETED_STATUS': str(task_completed_status),
-                'TASK_TITLE': task_title
-            })
-
-    print(f"Data exported to {csv_file_name}")
-
+# No execution of this file when imported
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python3 export_to_CSV.py <employee_id>")
-        sys.exit(1)
+    
+# Pass employee id on command line
+    id = sys.argv[1]
 
-    employee_id = int(sys.argv[1])
-    get_employee_info(employee_id)
+# APIs 
+    userTodoURL = "https://jsonplaceholder.typicode.com/users/{}/todos".format(id)
+    userProfile = "https://jsonplaceholder.typicode.com/users/{}".format(id)
+
+# Make requests on APIs
+    todoResponse = requests.get(userTodoURL)
+    profileResponse = requests.get(userProfile)
+
+# Parse responses and store in variables
+    todoJson_Data = todoResponse.json()
+    profileJson_Data = profileResponse.json()
+
+#Get employee information
+    employeeName = profileJson_Data['username']
+
+    dataList = []
+
+    for data in todoJson_Data:
+        dataDict = {"userId":data['userId'], "name":employeeName, "completed":data['completed'], "title":data['title']}
+        dataList.append(dataDict)
+
+    # Specify the CSV file path
+    csv_file_path = '{}.csv'.format(todoJson_Data[0]['userId'])
+
+    # Define the field names (column headers)
+    fieldnames = ["userId", "name", "completed", "title"]
+
+    # Open the CSV file in write mode
+    with open(csv_file_path, 'w', newline='') as csv_file:
+        # Create a CSV writer
+        csv_writer = csv.DictWriter(csv_file, fieldnames=fieldnames, quoting=csv.QUOTE_ALL)
+
+        # Write the data rows
+        for row in dataList:
+            csv_writer.writerow(row)
